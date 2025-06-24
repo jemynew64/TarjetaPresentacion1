@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarjeta de Presentación</title>
+    <link rel="stylesheet" href="./assets/output.css">
+    <style>
+      .card-inner {
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+
+      .card-front,
+      .card-back {
+        backface-visibility: hidden;
+      }
+
+      .card-back {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="card w-full max-w-sm h-[580px] perspective-[1000px] cursor-pointer" onclick="document.querySelector('.card-inner').classList.toggle('rotate')">
+<div class="card-inner relative w-full h-full">
+  <!-- FRONT -->
+  <div class="card-front absolute w-full h-full bg-white rounded-xl shadow-xl flex flex-col items-center p-6 overflow-hidden">
+    <img src="perfil.jpg" alt="Foto de perfil" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-gray-300" />
+    <h1 class="text-2xl font-bold text-gray-800 mb-1 text-center">Jemal León Dueñas</h1>
+    <p class="text-sm text-gray-600 text-center mb-6">
+      Preprofesional de Diseño y Desarrollo de Software. Con conocimientos básicos en React y Docker. Adaptable, creativo y con muchas ganas de aprender.
+    </p>
+
+    <div class="space-y-2 w-full">
+
+<a href="https://www.linkedin.com/in/jemal-leon-duenas-5a6988295/" target="_blank" class="flex items-center justify-center gap-2 bg-green-500 text-white py-2 px-4 rounded text-center hover:bg-green-600 transition">
+  <img src="./assets/whatsapp.svg" alt="LinkedIn" class="w-5 h-5" />
+  <span> 
+    
+    Escríbeme por WhatsApp</span>
+</a>
+
+      <a href="mailto:tuemail@ejemplo.com" class="block bg-blue-500 text-white py-2 px-4 rounded text-center hover:bg-blue-600 transition">📧 Envíame un email</a>
+
+      <a href="https://github.com/jemynew64" target="_blank" class="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded text-center hover:bg-gray-900 transition">
+        <svg width="24" height="24">
+          <use xlink:href="./assets/sprite.svg#github" />
+        </svg>
+        <span>GitHub</span>
+      </a>
+      
+<a href="https://www.linkedin.com/in/jemal-leon-duenas-5a6988295/" target="_blank" class="flex items-center justify-center gap-2 bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-700 transition">
+  <img src="./assets/linkedin.svg" alt="LinkedIn" class="w-5 h-5" />
+  <span>LinkedIn</span>
+</a>
+
+
+      <button onclick="event.stopPropagation(); navigator.share && navigator.share({ title: 'Mi Tarjeta', text: 'Conóceme', url: window.location.href })"
+        class="block bg-gray-600 text-white py-2 px-4 rounded text-center hover:bg-gray-700 transition w-full">
+        🔗 Compartir
+      </button>
+
+<a href="https://www.linkedin.com/in/jemal-leon-duenas-5a6988295/" target="_blank" class="flex items-center justify-center gap-2 bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700 transition">
+  <img src="./assets/cv.svg" alt="LinkedIn" class="w-5 h-5" />
+  <span>Descargar CV</span>
+</a>    
+</div>
+  </div>
+
+  <!-- BACK -->
+  <div class="card-back absolute w-full h-full bg-white rounded-xl shadow-xl flex flex-col items-center justify-center p-6">
+    <h2 class="text-lg font-semibold mb-4 text-center">Escanea el QR</h2>
+    <img src="39c26a31-b05a-4c5c-91c2-e68c4399a34b.png" alt="QR Code" class="w-40 h-40 object-contain" />
+    <p class="mt-4 text-sm text-gray-500">¡Gracias por visitarme!</p>
+  </div>
+</div>
+
+    </div>
+
+    <script>
+      document.querySelector('.card-inner').classList.remove('rotate');
+      document.querySelector('.card-inner').style.transform = 'rotateY(0deg)';
+      document.querySelector('.card').addEventListener('click', function () {
+        const cardInner = document.querySelector('.card-inner');
+        if (cardInner.style.transform === 'rotateY(180deg)') {
+          cardInner.style.transform = 'rotateY(0deg)';
+        } else {
+          cardInner.style.transform = 'rotateY(180deg)';
+        }
+      });
+    </script>
+  </body>
+</html>
